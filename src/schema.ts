@@ -1,6 +1,6 @@
 import { buildSchema } from "graphql";
 
-const schema = buildSchema(`
+const typeDefs = buildSchema(`
     type Person {
          id: ID
          name: String
@@ -21,4 +21,4 @@ const schema = buildSchema(`
     }
 `);
 
-export { schema }
+export { typeDefs }

@@ -1,8 +1,11 @@
 import express from 'express';
 const app = express();
+const morgan = require('morgan');
 import { graphqlHTTP } from 'express-graphql';
-import { schema } from './schema';
-const port = 4000
+import { typeDefs } from './schema';
+app.use(morgan('dev'));
+
+
 
 const Person = [
     {
@@ -30,7 +33,7 @@ const resolvers = {
 }
 
 app.use('/graphql', graphqlHTTP({
-    schema,
+    schema: typeDefs,
     rootValue: resolvers,
     graphiql: true
 }))
